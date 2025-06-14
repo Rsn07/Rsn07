@@ -1,1 +1,3 @@
-Hey Everybody I'm an ordinary man who's intrest in python coding.
+Nexlia
+
+An cloud based application uses firebase as an server.
