@@ -1,0 +1,583 @@
+/* Basic Resets & Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+nav {
+    margin-top: 10px;
+    display: flex; /* Make nav a flex container */
+    justify-content: center; /* Center buttons horizontally */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 10px; /* Space between buttons */
+}
+
+nav button {
+    background: #555;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    /* margin: 0 5px; Removed margin from here, using gap on nav */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+nav button:hover {
+    background: #777;
+}
+
+/* NEW: Styling for Import button container */
+.import-button-container {
+    /* No specific styling needed here unless you want to group it visually */
+    /* This mainly acts as a hook for placing the button without direct nav margins */
+}
+
+#importDataBtn {
+    background-color: #007bff; /* A distinct blue for import */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+#importDataBtn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+main {
+    flex: 1; /* Allows main content to grow and push footer down */
+    padding: 20px;
+    max-width: 800px; /* Default max-width for smaller screens */
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* Page Visibility */
+.page {
+    display: none; /* Hide all pages by default */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.page.active-page {
+    display: block; /* Show the active page */
+    opacity: 1;
+}
+
+/* Section Visibility within Pages */
+.hidden-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.form-section, .message-box {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.message-box {
+    text-align: center;
+    background-color: #eaf6ff; /* Light blue for prompts */
+    border-color: #a0d9ff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.message-box p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Buttons */
+button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.main-action-button {
+    font-size: 1.2rem;
+    padding: 12px 25px;
+    background: #28a745; /* Green for primary actions */
+}
+
+.main-action-button:hover {
+    background: #218838;
+}
+
+.options button {
+    background: #6c757d; /* Grey for Yes/No options */
+    margin: 0 10px;
+    min-width: 80px;
+}
+
+.options button:hover {
+    background: #5a6268;
+}
+
+/* Checkbox Styles */
+.class-checkboxes label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.class-checkboxes input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Make checkboxes a bit larger */
+    vertical-align: middle;
+}
+
+.actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Dashboard Info */
+.dashboard-info p {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.dashboard-info span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+#percentageStatus {
+    font-weight: bold;
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Calendar Styles */
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+}
+
+.calendar-controls button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.calendar-controls button:hover {
+    background: #0056b3;
+}
+
+#currentMonthYear {
+    margin: 0;
+    color: #333;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    border: 1px solid #eee;
+    padding: 10px 5px;
+    height: 80px; /* Fixed height for days */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    cursor: pointer;
+    background-color: #fafafa;
+    border-radius: 5px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    overflow: hidden; /* Hide overflow content */
+}
+
+.calendar-day:hover {
+    background-color: #e0f2f7;
+    border-color: #007bff;
+}
+
+.calendar-day.current-day {
+    border: 2px solid #007bff;
+    background-color: #eaf6ff;
+}
+
+.calendar-day.other-month {
+    background-color: #f8f8f8;
+    color: #aaa;
+}
+
+.calendar-day .day-number {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.calendar-day .day-info {
+    font-size: 0.8em;
+    text-align: center;
+    color: #666;
+}
+
+.calendar-day.holiday .day-info {
+    color: #dc3545; /* Red for holidays */
+    font-weight: bold;
+}
+
+.calendar-day.attended .day-info {
+    color: #28a745; /* Green for attended days */
+    font-weight: bold;
+}
+
+.calendar-day-details {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #007bff;
+    border-radius: 8px;
+    background-color: #eaf6ff;
+    transition: all 0.5s ease;
+}
+
+.hidden-details {
+    display: none;
+    opacity: 0;
+}
+
+/* Animations (Simple Fade) */
+.page.active-page {
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Optional: Slide animation for sections within a page */
+.form-section.active-section {
+    animation: slideInFromRight 0.5s forwards;
+}
+
+@keyframes slideInFromRight {
+    from { transform: translateX(20%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    transform: translateY(-50px); /* Initial subtle animation */
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.visible .modal-content {
+    transform: translateY(0);
+}
+
+/* Close Button for Modal */
+.close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #888;
+    padding: 5px 10px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.close-modal-btn:hover {
+    color: #333;
+}
+
+/* Styles for modal pages (alteration and password views) */
+.modal-page {
+    display: none; /* Hide all modal pages by default */
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.modal-page.active-modal-page {
+    display: block; /* Show the active modal page */
+    opacity: 1;
+}
+
+/* Specific modal styling */
+#alterRecordModal h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #007bff;
+}
+
+#alterRecordModal .form-section {
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #fcfcfc;
+}
+
+#alterRecordModal .form-section h4 {
+    margin-top: 0;
+    color: #555;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+#alterRecordModal .class-checkboxes label {
+    margin-bottom: 8px;
+    font-size: 1em; /* Smaller in modal */
+}
+
+#alterPasswordInput {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+#alterRecordModal button {
+    width: auto; /* Adjust button width */
+    margin-top: 10px;
+    font-size: 0.95rem;
+    padding: 8px 15px;
+}
+
+#alterRecordModal #confirmAlterationBtn {
+    background: #28a745;
+}
+#alterRecordModal #confirmAlterationBtn:hover {
+    background: #218838;
+}
+
+#alterRecordModal #cancelAlterationBtn,
+#alterRecordModal #cancelPasswordBtn {
+    background: #6c757d;
+}
+#alterRecordModal #cancelAlterationBtn:hover,
+#alterRecordModal #cancelPasswordBtn:hover {
+    background: #5a6268;
+}
+
+#alterRecordModal #submitAlterPasswordBtn {
+    background: #007bff;
+}
+#alterRecordModal #submitAlterPasswordBtn:hover {
+    background: #0056b3;
+}
+
+.warning-text {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Desktop Layout Adjustments */
+@media (min-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 40px; /* More padding for desktop */
+    }
+
+    header h1 {
+        padding-bottom: 0;
+    }
+
+    nav {
+        margin-top: 0;
+        /* Re-apply gap for desktop if needed, or adjust spacing */
+        gap: 15px; /* Slightly more space between buttons on desktop */
+    }
+
+    nav button {
+        padding: 10px 20px; /* Slightly larger buttons on desktop */
+        font-size: 1.1rem;
+    }
+
+    #importDataBtn {
+        padding: 10px 20px; /* Match other nav buttons */
+        font-size: 1.1rem;
+    }
+
+    main {
+        max-width: 960px; /* Wider main content for desktop */
+        padding: 30px;
+        margin: 40px auto;
+    }
+
+    .dashboard-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two columns for dashboard info */
+        gap: 15px 30px; /* Gap between grid items */
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        margin-bottom: 30px;
+    }
+
+    .dashboard-info p {
+        margin-bottom: 0; /* Remove default paragraph margin within grid */
+    }
+
+    .message-box {
+        padding: 40px; /* Larger padding for message boxes */
+    }
+
+    .message-box .options {
+        display: flex;
+        justify-content: center;
+        gap: 20px; /* Space between Yes/No buttons */
+    }
+
+    .form-section .class-checkboxes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two columns for checkboxes in forms */
+        gap: 10px;
+    }
+
+    .calendar-grid-container {
+        /* No specific changes here for grid layout, relies on existing grid */
+    }
+
+    .calendar-day {
+        height: 100px; /* Taller calendar cells on desktop */
+        font-size: 1em;
+    }
+
+    .calendar-day .day-number {
+        font-size: 1.2em;
+    }
+
+    .calendar-day .day-info {
+        font-size: 0.9em;
+    }
+
+    #calendar-day-details {
+        margin-top: 40px;
+    }
+
+    .modal-content {
+        padding: 40px;
+        max-width: 600px;
+    }
+}
+
